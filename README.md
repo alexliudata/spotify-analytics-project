@@ -27,4 +27,17 @@ The project employs various analytical techniques:
 ## Running the Dashboard
 To run the interactive dashboard:
 
-1. Install required packages: 
+1. Install required packages:
+   ```
+   pip install dash plotly pandas numpy statsmodels scikit-learn
+   ```
+
+2. Execute the dashboard script:
+   ```
+   python spotify_dashboard.py
+   ```
+
+3. Open your web browser and navigate to:
+   ```
+   http://127.0.0.1:8051
+   ```
