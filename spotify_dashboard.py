@@ -345,4 +345,4 @@ if __name__ == '__main__':
     
     print("\n✓ Dashboard ready! Open browser to view the dashboard.")
     print("  Run this file directly with: python spotify_dashboard.py")
-    app.run_server(debug=True, port=8051) 
+    app.run_server(debug=True, port=8052) 
