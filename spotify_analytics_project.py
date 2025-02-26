@@ -58,7 +58,7 @@ def parse_spotify_date(date_str):
 
 # Replace the generic date conversion with our specialized function
 print("\nLoading data...")
-audience_df = pd.read_csv('Sakkarisaudiencetimeline.csv')
+audience_df = pd.read_csv('data/Sakkarisaudiencetimeline.csv')
 print("✓ Audience timeline data loaded")
 
 # Convert date column to datetime

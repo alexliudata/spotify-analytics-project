@@ -15,7 +15,7 @@ print("Loading data for Spotify Analytics Dashboard...")
 
 # Load dataset
 try:
-    audience_df = pd.read_csv('Sakkarisaudiencetimeline.csv')
+    audience_df = pd.read_csv('data/Sakkarisaudiencetimeline.csv')
     audience_df['date'] = pd.to_datetime(audience_df['date'])
     print("✓ Audience timeline data loaded")
 except Exception as e:
