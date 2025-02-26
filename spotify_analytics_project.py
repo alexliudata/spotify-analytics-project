@@ -17,6 +17,7 @@ import re
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from sklearn.model_selection import TimeSeriesSplit
+import scipy.stats as stats
 
 # Set visualization styles
 plt.style.use('fivethirtyeight')
@@ -1504,29 +1505,34 @@ if showcase_impact is not None:
 print("\n11. REGRESSION DIAGNOSTICS")
 print("-----------------------")
 
-# Check residuals for normality
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
+# Basic residual plot - easier to explain than formal tests
+plt.figure(figsize=(10, 6))
+plt.scatter(model.fittedvalues, model.resid)
+plt.axhline(y=0, color='r', linestyle='-')
+plt.xlabel('Fitted values')
+plt.ylabel('Residuals')
+plt.title('Residual Plot')
+plt.grid(True, alpha=0.3)
+plt.savefig('output/residual_plot.png')
+print("✓ Created residual plot")
 
-# Create Q-Q plot for residuals
+# Simple histogram of residuals
+plt.figure(figsize=(10, 6))
+plt.hist(model.resid, bins=20, color='#1DB954', alpha=0.7)
+plt.title('Histogram of Residuals')
+plt.xlabel('Residual Value')
+plt.ylabel('Frequency')
+plt.grid(True, alpha=0.3)
+plt.savefig('output/residual_histogram.png')
+print("✓ Created residual histogram")
+
+# A simpler version of the QQ plot
 fig = plt.figure(figsize=(10, 6))
-sm.qqplot(model.resid, line='45', fit=True, ax=plt.gca())
+stats.probplot(model.resid, plot=plt)
 plt.title('Q-Q Plot of Residuals')
-plt.tight_layout()
+plt.grid(True, alpha=0.3)
 plt.savefig('output/residual_qq_plot.png')
-print("✓ Created residual normality plot")
-
-# Test for autocorrelation in residuals
-from statsmodels.stats.diagnostic import acorr_ljungbox
-lb_result = acorr_ljungbox(model.resid, lags=[10])
-print(f"✓ Ljung-Box test for autocorrelation: p-value = {lb_result.iloc[0, 1]:.4f}")
-print(f"  {'Evidence of autocorrelation' if lb_result.iloc[0, 1] < 0.05 else 'No significant autocorrelation'}")
-
-# Heteroscedasticity test
-from statsmodels.stats.diagnostic import het_breuschpagan
-bp_test = het_breuschpagan(model.resid, model.model.exog)
-print(f"✓ Breusch-Pagan test for heteroscedasticity: p-value = {bp_test[1]:.4f}")
-print(f"  {'Evidence of heteroscedasticity' if bp_test[1] < 0.05 else 'No significant heteroscedasticity'}")
+print("✓ Created Q-Q plot for visual normality check")
 
 print("\n12. TIME SERIES CROSS-VALIDATION")
 print("-----------------------")
