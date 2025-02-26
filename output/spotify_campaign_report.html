@@ -1,0 +1,233 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Spotify Campaign Analytics Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            h1, h2, h3 {
+                color: #1DB954;
+            }
+            .header {
+                background-color: #191414;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                color: #1DB954;
+                margin: 0;
+            }
+            .section {
+                margin-bottom: 40px;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 5px;
+            }
+            .stat-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .stat-box {
+                background-color: white;
+                border-left: 5px solid #1DB954;
+                padding: 15px;
+                margin-bottom: 20px;
+                width: 30%;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+            .campaign-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .campaign-table th, .campaign-table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            .campaign-table th {
+                background-color: #1DB954;
+                color: white;
+            }
+            .campaign-table tr:hover {
+                background-color: #f5f5f5;
+            }
+            .viz-container {
+                text-align: center;
+                margin: 30px 0;
+            }
+            .highlight {
+                color: #1DB954;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Spotify Campaign Analytics Report</h1>
+            <p>Artist: Sakkaris | Analysis Period: 2023-01-01 - 2025-02-23</p>
+        </div>
+        
+        <div class="section">
+            <h2>Overall Performance Metrics</h2>
+            <div class="stat-container">
+                <div class="stat-box">
+                    <p>Total Streams</p>
+                    <p class="stat-value">889,753</p>
+                </div>
+                <div class="stat-box">
+                    <p>Follower Growth</p>
+                    <p class="stat-value">396.8%</p>
+                </div>
+                <div class="stat-box">
+                    <p>Average Daily Streams</p>
+                    <p class="stat-value">1133.4</p>
+                </div>
+            </div>
+            <p>Peak streaming day was <span class="highlight">2024-07-22</span> with <span class="highlight">4,143</span> streams.</p>
+            <p>Best performing day of the week: <span class="highlight">Tuesday</span> (1229.9 average streams)</p>
+        </div>
+        
+        <div class="section">
+            <h2>Campaign Effectiveness</h2>
+            <h3>Marquee Campaigns</h3>
+    
+            <p>Average Stream Lift: <span class="highlight">32.2%</span></p>
+            <table class="campaign-table">
+                <tr>
+                    <th>Release</th>
+                    <th>Campaign Period</th>
+                    <th>Stream Lift</th>
+                    <th>Listener Lift</th>
+                </tr>
+        
+                <tr>
+                    <td>cigarette</td>
+                    <td>2024-05-15 to 2024-05-17</td>
+                    <td>105.9%</td>
+                    <td>55.5%</td>
+                </tr>
+            
+                <tr>
+                    <td>i remember u</td>
+                    <td>2024-06-13 to 2024-06-15</td>
+                    <td>20.4%</td>
+                    <td>12.4%</td>
+                </tr>
+            
+                <tr>
+                    <td>don't cry</td>
+                    <td>2024-03-30 to 2024-04-09</td>
+                    <td>11.5%</td>
+                    <td>17.1%</td>
+                </tr>
+            
+                <tr>
+                    <td>stuck on you</td>
+                    <td>2024-08-05 to 2024-08-06</td>
+                    <td>-9.0%</td>
+                    <td>-7.5%</td>
+                </tr>
+            </table>
+            <h3>Showcase Campaigns</h3>
+    
+            <p>Average Stream Lift: <span class="highlight">29.7%</span></p>
+            <table class="campaign-table">
+                <tr>
+                    <th>Release</th>
+                    <th>Campaign Period</th>
+                    <th>Stream Lift</th>
+                    <th>Listener Lift</th>
+                </tr>
+        
+                <tr>
+                    <td>cigarette</td>
+                    <td>2024-05-16 to 2024-05-18</td>
+                    <td>108.9%</td>
+                    <td>66.3%</td>
+                </tr>
+            
+                <tr>
+                    <td>Dancing in My Dreams</td>
+                    <td>2024-07-12 to 2024-07-14</td>
+                    <td>21.8%</td>
+                    <td>18.0%</td>
+                </tr>
+            
+                <tr>
+                    <td>Dancing in My Dreams</td>
+                    <td>2024-07-12 to 2024-07-14</td>
+                    <td>21.8%</td>
+                    <td>18.0%</td>
+                </tr>
+            
+                <tr>
+                    <td>Dancing in My Dreams</td>
+                    <td>2024-07-12 to 2024-07-14</td>
+                    <td>21.8%</td>
+                    <td>18.0%</td>
+                </tr>
+            
+                <tr>
+                    <td>i remember u</td>
+                    <td>2024-06-19 to 2024-06-21</td>
+                    <td>11.2%</td>
+                    <td>6.2%</td>
+                </tr>
+            
+                <tr>
+                    <td>stuck on you</td>
+                    <td>2024-08-05 to 2024-08-07</td>
+                    <td>-7.2%</td>
+                    <td>-1.5%</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Key Insights</h2>
+            <ul>
+    <li>Your most effective campaign was the <span class='highlight'>Showcase</span> campaign for <span class='highlight'>cigarette</span> with a stream lift of <span class='highlight'>108.9%</span>.</li><li><span class='highlight'>Marquee</span> campaigns performed better on average with 32.2% stream lift compared to 29.7% for Showcase campaigns.</li><li>Your streams are highest on <span class='highlight'>Tuesday</span> and lowest on <span class='highlight'>Sunday</span>, suggesting scheduling new releases or campaigns accordingly could maximize impact.</li><li>You're generating an average of <span class='highlight'>377.0</span> streams per follower, which is a key metric for artist sustainability.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Visualizations</h2>
+            <p>For interactive visualizations, please open the HTML files in the output folder:</p>
+            <ol>
+                <li>streaming_with_campaigns.html - Timeline with campaign markers</li>
+                <li>campaign_roi_analysis.html - ROI analysis for all campaigns</li>
+                <li>monthly_streams.html - Monthly streaming patterns</li>
+                <li>day_of_week_analysis.html - Day of week performance</li>
+                <li>engagement_analysis.html - Streams per listener ratio</li>
+                <li>seasonal_decomposition.html - Trend and seasonal components</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Recommendations</h2>
+            <ol>
+    <li>Prioritize <span class='highlight'>Marquee</span> campaigns for future releases as they're generating 2.5% higher stream lift than Showcase campaigns.</li><li>Time your release campaigns to launch on <span class='highlight'>Tuesday</span> when your audience is most active.</li><li>Your top campaigns are performing above industry averages - document your promotional strategies for these releases to replicate this success.</li><li>Analyze the seasonal decomposition visualization to identify recurring patterns in your streaming activity, and plan major releases to align with these patterns.</li>
+            </ol>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px; color: #999; font-size: 0.8em;">
+            <p>Report generated on 2025-02-25</p>
+        </div>
+    </body>
+    </html>
+    
