@@ -82,7 +82,7 @@ app = dash.Dash(__name__, server=server)
 # Define the layout
 app.layout = html.Div([
     html.Div([
-        html.H1("Spotify Streaming Analytics Dashboard", 
+        html.H1("Spotify Streaming Analytics Dashboard - Sakkaris", 
                 style={'textAlign': 'center', 'color': '#1DB954', 'marginBottom': '30px', 'fontFamily': 'Helvetica'})
     ]),
     
@@ -189,17 +189,17 @@ def update_graphs(start_date, end_date):
         }
     )
     
-    # 2. Listeners graph
-    start_listeners = filtered_df['listeners'].iloc[0] if len(filtered_df) > 0 else 0
-    end_listeners = filtered_df['listeners'].iloc[-1] if len(filtered_df) > 0 else 0
-    
+    # 2. Listeners graph (aggregate by month for true monthly growth)
+    monthly_listeners = filtered_df.resample('M', on='date')['listeners'].max().reset_index()
+    start_listeners = monthly_listeners['listeners'].iloc[0] if len(monthly_listeners) > 0 else 0
+    end_listeners = monthly_listeners['listeners'].iloc[-1] if len(monthly_listeners) > 0 else 0
     growth_pct = ((end_listeners / start_listeners) - 1) * 100 if start_listeners > 0 else 0
-    
+
     listeners_fig = px.line(
-        filtered_df, x='date', y='listeners',
-        labels={'listeners': 'Monthly Listeners', 'date': 'Date'}
+        monthly_listeners, x='date', y='listeners',
+        labels={'listeners': 'Monthly Listeners', 'date': 'Month'}
     )
-    
+
     listeners_fig.update_layout(
         template='plotly_white',
         title={
@@ -264,27 +264,15 @@ def update_graphs(start_date, end_date):
         ))
         
         forecast_fig.update_layout(
-            template='plotly_white',
-            title={
-                'text': "30-Day Stream Forecast",
-                'y':0.9,
-                'x':0.5,
-                'xanchor': 'center',
-                'yanchor': 'top'
-            }
+            template='plotly_white'
         )
         
-        # Model metrics
+        # Model metrics (NO heading here)
         metrics_html = html.Div([
-            html.P([
-                html.Strong("Model Performance:"),
-                html.Ul([
-                    html.Li(f"Mean Absolute Error: 296.08 streams"),
-                    html.Li(f"Root Mean Squared Error: 387.69 streams"),
-                    html.Li(f"Top predictors: 30-day average, 7-day average, previous day")
-                ])
-            ])
-        ])
+            html.P("Mean Absolute Error: 296.08 streams"),
+            html.P("Root Mean Squared Error: 387.69 streams"),
+            html.P("Top predictors: 30-day average, 7-day average, previous day")
+        ], style={'textAlign': 'center', 'fontSize': '16px'})
     else:
         forecast_fig = go.Figure()
         metrics_html = html.P("Prediction data not available")
