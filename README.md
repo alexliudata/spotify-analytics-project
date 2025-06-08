@@ -61,6 +61,6 @@ The project employs a range of analytical techniques:
 
 ## About Sakkaris
 
-This project is based on real streaming and campaign data from my band, **Sakkaris**. All analysis and insights are tailored to our actual Spotify for Artists data.
+This project is based on real streaming and campaign data from my band, **Sakkaris**. We're an indie rock/shoegaze band based in Los Angeles, CA. All analysis and insights are tailored to our actual Spotify for Artists data.
 
 ---
